@@ -1,0 +1,15 @@
+[Unit]
+Description=Internet Radio Service
+After=multi-user.target network.target mongodb.service
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/sbin/internet_radio/internet_radio.py
+StandardInput=tty-force
+Restart=on-failure
+WorkingDirectory=/usr/local/sbin/internet_radio
+Environment="LOG_LEVEL=logging.ERROR"
+
+[Install]
+WantedBy=multi-user.target

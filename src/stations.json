@@ -1,0 +1,17 @@
+[
+    {   
+        "id": 1, 
+        "station": "NDR-2",
+        "desc": "Nord-Deutsche Radio",
+        "logo": "http://db.radioline.fr/pictures/radio_0e62e5fb859c362c86fb1fafbee10e73/logo200.jpg",
+        "stream": "https://ndr-dg-ndr-https-fra-dtag-cdn.sslcast.addradio.de/ndr/ndr2/niedersachsen/mp3/128/stream.mp3"
+    },
+    {   
+        "id": 2, 
+        "station": "N-JOY",
+        "desc": "N-JOY Deutschland",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Njoy-logo.svg/1200px-Njoy-logo.svg.png",
+        "stream": "https://ndr-dg-ndr-https-dus-dtag-cdn.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3"
+    }
+]
+    
