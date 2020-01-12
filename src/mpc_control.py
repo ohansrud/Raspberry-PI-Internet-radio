@@ -39,7 +39,7 @@ class mpc_control():
         self.client.next()
         playNext()
 
-    def playCurrentStation(self):
+    async def playCurrentStation(self):
         try:
             self.connect()
             current = getCurrentStation()
@@ -51,6 +51,6 @@ class mpc_control():
             self.client.play(0)
             name = current['station']
             console_logger(name)
-            display(name, 0)
+            await display(name, 0)
         except:
             error_handler('Could not play current track')

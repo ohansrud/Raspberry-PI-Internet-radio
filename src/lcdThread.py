@@ -1,5 +1,5 @@
 import threading 
-import ctypes 
+import asyncio 
 import time 
 from utils import *
 from mpc_control import *
@@ -29,10 +29,10 @@ class lcdThread(threading.Thread):
         threshold=100
 
         while True:
-            try:
-                watchdog(self)
-            except: 
-                error_handler('Unable to run watchdog')
+            # try:
+            #     watchdog(self)
+            # except: 
+            #     error_handler('Unable to run watchdog')
 
             try:
                 self.mpc.connect()
@@ -48,44 +48,23 @@ class lcdThread(threading.Thread):
             except: 
                 error_handler('Unable to fetch station name')
 
-            try:
-                console_logger('Fetching song')
-                song = self.mpc.getCurrentSong()
-                if(song == self.currentSong):
-                    console_logger('Same song')
-                    counter=counter+1
-                    if(counter > threshold):
-                        console_logger('Too long. Restarting...')
-                        self.mpc.stop()
-                        self.mpc.play()
+            # try:
+            #     console_logger('Fetching song')
+            #     song = self.mpc.getCurrentSong()
+            #     if(song == self.currentSong):
+            #         console_logger('Same song')
+            #         counter=counter+1
+            #         if(counter > threshold):
+            #             error_handler('Too long. Restarting...')
+            #             self.mpc.stop()
+            #             self.mpc.play()
 
-                elif(song != None):
-                    counter=0
-                    self.currentSong = song
-                    display(song, 1, True)
-            except: 
-                error_handler('Unable to display song')
+            #     elif(song != None):
+            #         counter=0
+            #         self.currentSong = song
+            #         display(song, 1, True)
+            # except: 
+            #     error_handler('Unable to display song')
             
-            time.sleep(5) 
-             
-    def get_id(self): 
-        if hasattr(self, '_thread_id'): 
-            return self._thread_id 
-        for id, thread in threading._active.items(): 
-            if thread is self: 
-                return id
-
-    def restart(self):
-        console_logger('Restart Thread')
-        self.currentSong = "."
-        self.currentStation = "."      
-   
-    def cancel(self):
-        console_logger('Cancel Thread')
-        thread_id = self.get_id() 
-        res = ctypes.pythonapi.PyThreadState_SetAsyncExc(thread_id, 
-              ctypes.py_object(SystemExit)) 
-        if res > 1: 
-            ctypes.pythonapi.PyThreadState_SetAsyncExc(thread_id, 0) 
-            print('Exception raise failure') 
-
+            asyncio.sleep(5)
+            

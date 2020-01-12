@@ -1,1 +1,5 @@
 .vscode
+.DS_Store
+env
+radio.log
+__pycache__
