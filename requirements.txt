@@ -6,7 +6,7 @@ asyncio==3.4.3
 certifi==2018.8.24
 cffi==1.13.1
 chardet==3.0.4
-cryptography==2.6.1
+cryptography==3.2
 entrypoints==0.3
 idna==2.6
 keyring==17.1.1
