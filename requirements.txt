@@ -3,7 +3,7 @@ Adafruit-GPIO==1.0.4
 Adafruit-PureIO==0.2.3
 asn1crypto==0.24.0
 asyncio==3.4.3
-certifi==2018.8.24
+certifi==2022.12.7
 cffi==1.13.1
 chardet==3.0.4
 cryptography==2.6.1
